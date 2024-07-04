@@ -51,6 +51,10 @@ public class Deck {
         return cardCounts.getOrDefault(cardId, 0);
     }
 
+    public String getDeckName() {
+        return deckName;
+    }
+
     public String toString() {
         return "Deck{" +
                 "Deck Name: " + deckName +
