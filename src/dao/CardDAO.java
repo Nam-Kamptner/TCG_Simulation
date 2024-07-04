@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 public class CardDAO {
-    private Map<Integer, Card> cardCache = new HashMap<>();
+    private static Map<Integer, Card> cardCache = new HashMap<>();
 
     /**
      * Adds a new card to the database.
