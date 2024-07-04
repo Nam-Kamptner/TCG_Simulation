@@ -10,8 +10,7 @@ public class Card {
     private int pitch;
 
 
-    public Card(int id, String name, String type, int attack, int defense, int cost, int pitch) {
-        this.id = id;
+    public Card(String name, String type, int attack, int defense, int cost, int pitch) {
         this.name = name;
         this.type = type;
         this.attack = attack;
@@ -21,6 +20,8 @@ public class Card {
     }
 
     public int getId() {return id;}
+
+    public void setId(int id) {this.id = id;}
 
     public String getName() {
         return name;
