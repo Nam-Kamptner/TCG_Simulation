@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Card {
     private int id;
     private String name;
@@ -11,6 +13,12 @@ public class Card {
 
 
     public Card(String name, String type, int attack, int defense, int cost, int pitch) {
+        if (attack < 0 || defense < 0 || cost < 0) {
+            throw new IllegalArgumentException("Attack, defense, and cost must be non-negative.");
+        }
+        if (pitch < 1 || pitch > 3) {
+            throw new IllegalArgumentException("Pitch Value must be between 1 and 3.");
+        }
         this.name = name;
         this.type = type;
         this.attack = attack;
@@ -69,6 +77,19 @@ public class Card {
 
     public void setPitch(int pitch) {
         this.pitch = pitch;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Card card = (Card) o;
+        return id == card.id && attack == card.attack && defense == card.defense && cost == card.cost && Objects.equals(name, card.name) && Objects.equals(type, card.type);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, type, attack, defense, cost);
     }
 
     public String toString() {

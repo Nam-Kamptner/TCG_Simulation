@@ -32,7 +32,7 @@ public class DeckDAO {
         String insertSql = "INSERT INTO decks (deckname, card_id, count) VALUES (?, ?, ?)";
 
         try (Connection conn = DatabaseUtil.getConnection();
-             PreparedStatement updateStmt = updateStmt = conn.prepareStatement(updateSql);
+             PreparedStatement updateStmt = conn.prepareStatement(updateSql);
              PreparedStatement insertStmt = conn.prepareStatement(insertSql)) {
 
             Map<Integer, Integer> currentCounts = getCurrentCounts(deck.getDeckName());
