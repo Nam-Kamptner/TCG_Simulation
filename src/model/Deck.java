@@ -1,5 +1,7 @@
 package model;
 
+import dao.CardDAO;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
@@ -53,6 +55,16 @@ public class Deck {
 
     public String getDeckName() {
         return deckName;
+    }
+
+    public int drawCardId() {
+        if (!deckCards.isEmpty()) {
+            int drawnCardId = deckCards.getFirst();
+            deckCards.removeFirst();
+
+            return drawnCardId;
+        }
+        return -1;
     }
 
     public String toString() {
